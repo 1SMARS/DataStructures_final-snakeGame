@@ -59,20 +59,26 @@ public class Main extends Application {
 
             Scene scene = new Scene(root, width * cornerSize, height * cornerSize);
 
-            scene.addEventFilter(KeyEvent.KEY_PRESSED, key -> {
-                if (key.getCode() == KeyCode.W) {
-                    direction = Direction.UP;
-                }
-                if (key.getCode() == KeyCode.A) {
-                    direction = Direction.LEFT;
-                }
-                if (key.getCode() == KeyCode.S) {
-                    direction = Direction.DOWN;
-                }
-                if (key.getCode() == KeyCode.D) {
-                    direction = Direction.RIGHT;
-                }
+            scene.setOnKeyPressed(e -> {
 
+                switch (e.getCode()) {
+                    case W:
+                        if(direction != Direction.DOWN)
+                            direction = Direction.UP;
+                        break;
+                    case S:
+                        if(direction != Direction.UP)
+                            direction = Direction.DOWN;
+                        break;
+                    case A:
+                        if(direction != Direction.RIGHT)
+                            direction = Direction.LEFT;
+                        break;
+                    case D:
+                        if(direction != Direction.LEFT)
+                            direction = Direction.RIGHT;
+                        break;
+                }
             });
 
             snake.add(new Corner(width / 2, height / 2));
