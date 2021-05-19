@@ -84,7 +84,7 @@ public class Main extends Application {
                         break;
                 }
             });
-            });
+
 
             snake.add(new Corner(width / 2, height / 2));
             primaryStage.setScene(scene);
