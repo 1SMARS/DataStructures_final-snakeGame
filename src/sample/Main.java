@@ -59,26 +59,31 @@ public class Main extends Application {
 
             Scene scene = new Scene(root, width * cornerSize, height * cornerSize);
 
-            scene.setOnKeyPressed(e -> {
+             scene.setOnKeyPressed(e -> {
 
                 switch (e.getCode()) {
                     case W:
+                    case UP:
                         if(direction != Direction.DOWN)
                             direction = Direction.UP;
                         break;
                     case S:
+                    case DOWN:
                         if(direction != Direction.UP)
                             direction = Direction.DOWN;
                         break;
                     case A:
+                    case LEFT:
                         if(direction != Direction.RIGHT)
                             direction = Direction.LEFT;
                         break;
                     case D:
+                    case RIGHT:
                         if(direction != Direction.LEFT)
                             direction = Direction.RIGHT;
                         break;
                 }
+            });
             });
 
             snake.add(new Corner(width / 2, height / 2));
